@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="app.in.com.inapp" >
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" >
+    </uses-permission>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <activity android:name="com.koncius.zodiac.ChooseZodiacActivity" >
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.koncius.zodiac.MainActivity" >
+                </meta-data>
+            </activity>
+            <activity android:name="com.koncius.zodiac.MonthActivity" >
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.koncius.zodiac.ChooseZodiacActivity" >
+                </meta-data>
+            </activity>
+            <activity android:name="com.koncius.zodiac.TodayActivity" >
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.koncius.zodiac.ChooseZodiacActivity" >
+                </meta-data>
+            </activity>
+            <activity android:name="com.koncius.zodiac.WeekActivity" >
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.koncius.zodiac.ChooseZodiacActivity" >
+                </meta-data>
+            </activity>
+
+            <receiver android:name="com.koncius.zodiac.AlarmReceiver" >
+            </receiver>
+            <receiver android:name="com.koncius.zodiac.OnAlarmReceiver" >
+            </receiver>
+            <receiver
+                android:name="com.koncius.zodiac.OnBootReceiver"
+                android:enabled="false" >
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                </intent-filter>
+            </receiver>
+
+            <activity android:name="com.koncius.zodiac.NotificationView" >
+            </activity>
+            <activity android:name="com.koncius.zodiac.EditPreferences" >
+                <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.koncius.zodiac.MainActivity" >
+                </meta-data>
+            </activity>
+        </activity>
+        <activity android:name=".ChooseZodiacActivity"/>
+        <activity android:name=".TodayActivity"/>
+        <activity android:name=".MonthActivity"/>
+        <activity android:name=".WeekActivity"/>
+    </application>
+
+</manifest>
